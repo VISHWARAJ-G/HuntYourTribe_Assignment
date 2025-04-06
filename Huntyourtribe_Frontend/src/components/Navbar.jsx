@@ -24,7 +24,7 @@ function Navbar() {
       path: "/notifications",
     },
   ];
-  const [clicked, setClicked] = useState("Notifications");
+  const [clicked, setClicked] = useState("Home");
   return (
     <div className="sticky top-0 left-0 w-full h-20 py-5 shadow-md bg-white z-50">
       <div className="flex justify-around">
