@@ -1,14 +1,16 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import mysql.connector
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 CORS(app)
-
+load_dotenv()
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="FATHER MOTHER6369@gmail.com",
+    password=os.getenv("DB_PASSWORD"),
     database="notification_system",
     auth_plugin='mysql_native_password'
 )
