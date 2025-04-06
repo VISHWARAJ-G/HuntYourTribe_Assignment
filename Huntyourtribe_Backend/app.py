@@ -1,20 +1,19 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-import mysql.connector
+import pymysql
 from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
 CORS(app)
 load_dotenv()
-conn = mysql.connector.connect(
+conn = pymysql.connect(
     host="localhost",
     user="root",
     password=os.getenv("DB_PASSWORD"),
-    database="notification_system",
-    auth_plugin='mysql_native_password'
+    database="notification_system"
 )
-cursor = conn.cursor(dictionary=True)
+cursor = conn.cursor(pymysql.cursors.DictCursor)
 
 @app.route('/')
 def home():
